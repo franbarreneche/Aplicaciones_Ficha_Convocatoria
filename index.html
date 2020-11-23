@@ -1,52 +1,166 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ficha Convocatoria</title>
     <!-- BULMA DESDE CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <!-- FONTS AWESOME DESDE CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous"/>
+
     <!-- MIS ESTILOS -->
     <link rel="stylesheet" href="css/styles.css">
     <script defer src="js/fichas.js"></script>
 </head>
 
 <body>
-    <section class="hero is-medium is-dark is-bold">
+    <section class="hero is-dark is-bold">
         <div class="hero-body">
             <div class="container">
-                <h1 class="title">
-                    Ficha Convocatoria
-                </h1>
-                <h2 class="subtitle">
-                    Pequeña app para usar AJAX
-                </h2>
-            </div>
-        </div>
-    </section>    
-    <section class="section has-background-light">
-        <div class="container">
-            <div class="box fran">
-               <div class="table-container">
-                   <table class="table is-fullwidth">
-                        <thead>
-                            <th>ID</th>
-                            <th>Nombre</th>                            
-                            <th>Año</th>
-                            <th>Color</th>
-                            <th>Valor Pantone</th>
-                        </thead>
-                        <tbody id="tablaFichas">
-                        </tbody>
-                   </table>
-                </div>      
-            </div>
-            <div class="buttons is-centered">
-                <button id="botonTraerDatos" class="button is-primary">TRAER DATOS</button>
-                <button class="button is-danger">REINICIAR</button>
+                <div class="columns">
+                <div class="column">
+                    <h1 class="title">
+                        Ficha Convocatoria
+                    </h1>
+                    <h2 class="subtitle">
+                        Pequeña app para usar AJAX
+                    </h2>
+                    <a href="https://github.com/franbarreneche/Aplicaciones_Ficha_Convocatoria" class="button is-light" target="_blank"><span class="icon"><i class="fab fa-github"></i></span><span>GitHub</span></a>
+                </div>
+                <div class="column">
+                    <figure class="image is-128x128 is-pulled-right">
+                        <img class="is-squared" src="img/auction.svg">
+                    </figure>
+                </div>
+                </div>
             </div>
         </div>
     </section>
+    <section class="section has-background-light">
+        <div id="contenedorPrinicpal" class="container fran">
+            <!-- TABLA CON DATOS DE LA CONVOCATORIA -->
+            <div class="card events-card">
+                <header class="card-header has-background-dark">
+                    <p class="card-header-title has-text-light">
+                        DATOS DE LA CONVOCATORIA
+                    </p>
+                    <a href="#" class="card-header-icon" aria-label="more options">
+                        <span class="icon">
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-table">
+                    <div class="content">
+                        <table class="table is-fullwidth is-striped">
+                            <thead>                                
+                                <th>Tipo</th>
+                                <th>N°/Año</th>
+                                <th>Asunto</th>
+                            </thead>
+                            <tbody id="tablaDatosConvocatoria">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- TABLA CON DATOS DEL PLIEGO -->
+            <div class="card events-card mt-4">
+                <header class="card-header has-background-dark">
+                    <p class="card-header-title has-text-light">
+                        DATOS DEL PLIEGO
+                    </p>
+                    <a href="#" class="card-header-icon" aria-label="more options">
+                        <span class="icon">
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-table">
+                    <div class="content">
+                        <table class="table is-fullwidth is-striped">
+                            <thead>
+                                <th>Dirección Retiro</th>
+                                <th>Horario Retiro</th>
+                                <th>Dir. Acto Apertura</th>
+                                <th>Fecha Acto Apertura</th>
+                                <th>Horario Acto Apertura</th>
+                            </thead>
+                            <tbody id="tablaDatosPliego">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- TABLA CON CONDICIONES DEL PLIEGO -->
+            <div class="card events-card mt-4">
+                <header class="card-header has-background-dark">
+                    <p class="card-header-title has-text-light">
+                        CONDICIONES DEL PLIEGO
+                    </p>
+                    <a href="#" class="card-header-icon" aria-label="more options">
+                        <span class="icon">
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-table">
+                    <div class="content">
+                        <table class="table is-fullwidth is-striped">
+                            <thead>
+                                <th>N°</th>
+                                <th>Título</th>
+                                <th>Descripción</th>
+                            </thead>
+                            <tbody id="tablaCondicionesPliego">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- TABLA CON ARTICULOS SOLICITADOS -->
+            <div class="card events-card mt-4">
+                <header class="card-header has-background-dark">
+                    <p class="card-header-title has-text-light">
+                        ARTÍCULOS SOLICITADOS
+                    </p>
+                    <a href="#" class="card-header-icon" aria-label="more options">
+                        <span class="icon">
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </a>
+                </header>
+                <div class="card-table">
+                    <div class="content">
+                        <table class="table is-fullwidth is-striped">
+                            <thead>
+                                <th>Descripcion</th>
+                                <th>Cantidad</th>
+                                <th>Precio Estimado</th>                                
+                                <th>Importado</th>
+                                <th>Area Destino</th>
+                            </thead>
+                            <tbody id="tablaArticulos">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons is-centered mt-4">
+                <button id="botonTraerDatos" class="button is-primary">Traer Datos</button>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Ficha Convocatoria</strong> por <a href="https://github.com/franbarreneche" target="_blank">Francisco Barreneche</a>. Hecho para la cátedra Aplicaciones I de la 
+            <a href="https://www.upso.edu.ar/" target="_blank">UPSO</a>.
+          </p>
+        </div>
+      </footer>
 </body>
 
 </html>

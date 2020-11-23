@@ -1,3 +1,8 @@
-.fran {
-    min-height: 500px;
+  .events-card .card-table {
+    max-height: 430px;
+    overflow-y: scroll;
+  }
+
+  .fran {
+    min-height: 800px;
 }
